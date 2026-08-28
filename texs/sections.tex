@@ -1,81 +1,57 @@
 \sectionTitle{教育背景}{\faiconsixbf{graduation-cap}}
-\datedsubsection{\texthl{山西大学} / \textit{计算机与信息技术学院} / \textit{数据科学与大数据技术} / \textit{本科}}{2022 -- 2026}
+\datedsubsection{\texthl{山西大学} / 计算机与信息技术学院 / 数据科学与大数据技术 / 本科}{2022 -- 2026}
 
-\sectionTitle{专业技能}{\faiconsixbf{gears}}
+\sectionTitle{竞赛经历}{\faiconsixbf{award}}
 \begin{onehalfspacing}
-\normalline{熟悉 Linux 系统，掌握常用 Linux 命令，日常在 Linux 环境下从事开发}
-\normalline{熟悉 MPI/OpenMP等并行编程框架}
-\normalline{对cuda编程语言有一定的了解，对triton有一定的使用经验}
-\normalline{熟悉 avx2,sve等simd指令原语,能够编写SIMD程序}
-\normalline{熟悉 git操作,有一定的shell脚本编写能力}
-\normalline{熟悉 c/c++程序的编译流程,有Makefile编写能力，对cmake,vcpkg,xmake有一定的使用经验}
-\normalline{有vtune等性能分析工具的使用经验，具有性能分析、优化程序的能力}
-\normalline{有小型服务器集群的搭建和管理经验}
-\normalline{有docker,incus,k8s等容器与虚拟化技术的使用经验,有slurm,lsb等作业调度系统的使用经验}
+\datedline{\underline{2024 ASC 世界大学生超级计算机竞赛 / \texthl{一等奖}}}{2024.05}
+\begin{itemize}
+  \item 使用vtune等profile工具对 OpenCAEPoro 进行性能分析，发现调用BLAS库的gemm是性能瓶颈，动态链接的BLAS库进行小gemm运算时，效果不佳，通过手写AVX2 kernel替代BLAS库的gemm函数。同时针对程序整体，开启Linux的透明大页机制，减少缺页中断。
+  \item 调优 HPL 和 HPCG 性能， 根据系统内存，调整HPL和HPCG运算的相关参数，达到最优性能
+\end{itemize}
+
+\datedline{\underline{2024 SC 国际大学生超级计算机竞赛 IndySCC 赛道 / \texthl{季军}}}{2024.11}
+\datedline{\underline{2024 SC 国际大学生超级计算机竞赛 IndySCC 赛道 Linpack 最高计算性能奖 / \texthl{亚军}}}{2024.11}
+\begin{itemize}
+  \item 使用ansible管理 30 台虚拟化的计算节点；使用OpenMPI的rankfile文件进行MPI进程与计算核进行绑定，进行Linpack性能调优
+\end{itemize}
+
+\datedline{\underline{2024 MCC 海洋计算挑战赛 / \textit{三等奖}}}{2024.08}
+\begin{itemize}
+  \item 二维溢油模型优化：使用性能分析工具找到程序瓶颈在粒子岸线判断上，使用MPI和OpenMP对岸线判断进行并行化，并使用快速排斥方法来减少不必要的计算，最终实现了上百倍的加速比
+\end{itemize}
+
+\datedline{\underline{2025 华为 ICT 大赛 / \texthl{三等奖}}}{2025.03}
+\begin{itemize}
+  \item 阅读GotoBLAS论文，在鲲鹏 ARM 架构上使用 SME 矩阵指令集实现 HGEMM(半精度矩阵乘)
+\end{itemize}
+
+\datedline{\underline{2025 北京大学 HPCGame / \textit{三等奖}}}{2025.05}
 \end{onehalfspacing}
 
-% \sectionTitle{实习经历}{\faiconsixbf{building-user}} % building-columns
-% \datedsubsection{\textbf{科技公司} 上海}{2023.07 -- 2024.04}
-% \role{实习}{经理: 高富帅}
-% xxx 后端开发
-% \begin{itemize}
-%   \item 实现了 xxx 特性
-%   \item 后台资源占用率减少 8\%
-% \end{itemize}
-
-% Reference Test
-% \datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-% An xxx optimized for xxx\cite{verma2015large}
-% \begin{itemize}
-%  \item main contribution
-% \end{itemize}
-
-\sectionTitle{竞赛获奖}{\faiconsixbf{award}}
-\begin{onehalfspacing}
-% \datedline{2019\space 比赛 / \textit{国家级} / \textit{银牌}}{2019.10}
-\datedline{2024\space ASC世界大学生超算竞赛 / \textit{一等奖}} {2024.05}
-\datedline{2024\space MCC海洋计算挑战赛 / \textit{三等奖} } {2024.08}
-\datedline{2024\space IndySCC全球大学生超算竞赛/ \textit{季军} } {2024.11}
-\datedline{2024\space 华为ICT大赛挑战赛 / \textit{三等奖} } {2025.03}
-\datedline{2025\space 第二届北京大学高性能计算综合能力竞赛(HPCGame)/ \textit{三等奖} } {2025.05}
-\end{onehalfspacing}
-
-\sectionTitle{奖学金}{\faiconsix{google-scholar}}
-\begin{onehalfspacing}
-\datedline{山西大学曙光奖学金}{2025.01}
-\end{onehalfspacing}
-
-% \sectionTitle{项目经历}{\faiconsixbf{users}}
-% \datedsubsection{\textbf{\LaTeX\ 简历模板}}{2024.09 -- 至今}
-% \role{\LaTeX, Python}{\href{https://github.com/luooofan/resume}{luooofan/resume}}
-% Fork 自 \href{https://github.com/billryan/resume}{billryan/resume}，优雅的 \LaTeX\ 简历模板
-% \begin{itemize}
-%   \item 新增支持 FontAwesome 6.6.0
-%   \item 修改带图片的样式
-%   \item 新增多种标题行样式
-%   \item 其他修改
-% \end{itemize}
-
+\sectionTitle{实习经历}{\faiconsixbf{briefcase}}
+\datedsubsection{\texthl{北京开源芯片研究院}}{2026.03 -- 2026.07}
+\begin{itemize}
+  \item 使用AME矩阵指令集和rvv向量指令集适配大模型推理所需的基础算子，如matmul、softmax、rmsnorm等
+\end{itemize}
 
 \sectionTitle{项目经历}{\faiconsixbf{users}}
-\datedsubsection{\textbf{OpenCAEPoro性能优化}}{2023.12 -- 2024.05}
-\role{CPP} \
-ASC24题目
-\begin{itemize}
-  \item 优化了 OpenCAEPoro 中的一个矩阵乘函数，对于特定的小矩阵，采用手写avx2指令原语而不是调用blas库函数
-  \item 更换内存分配器，减少内存碎片，提升程序内内存适应性
-  \item 根据程序应用特点，开启linux的透明大页机制，减少缺页中断，提升程序性能
-\end{itemize}
-% \datedsubsection{\textbf{二维溢油模型程序性能优化}}{2024.07 -- 2024.08}
-% \role{Fortran OpenMP} \
-% 第一届MCC决赛题目,在一个串行的拉格朗日油粒子法程序基础上,通过profile发现性能热点,进行性能优化。
+% \datedsubsection{\textbf{OpenCAEPoro 性能优化}}{2023.12 -- 2024.05}
+% \role{C++} \ ASC24 竞赛
 % \begin{itemize}
-%   \item 使用了openmp并行化程序,提升程序性能
-%   \item 对于程序岸线部分采用快速排斥方法进行优化
-%   \item 将函数内联，减少函数调用开销
+%   \item 优化 OpenCAEPoro 中的矩阵乘函数，使用 AVX2 手写 kernel 替代 BLAS
+%   \item 更换内存分配器减少内存碎片；开启 Linux 透明大页减少缺页中断
 % \end{itemize}
 
-\sectionTitle{自我评价}{\faiconsixbf{comment}} % note-sticky
-\begin{onehalfspacing}
-\normalline{热爱技术，有较强的学习能力}
-\end{onehalfspacing}
+\datedsubsection{\textbf{MinivLLM 推理引擎}}{2026.03 -- 2026.06}
+\role{Python, Triton, CUDA}{}
+\begin{itemize}
+  \item 基于 Nano-vLLM 从零复现 vLLM 推理引擎，实现了 Page Attention
+  \item 实现分页 KV 缓存管理、迭代级调度器、CUDA Graph 优化
+  \item 实现 Qwen3 推理
+\end{itemize}
+
+\sectionTitle{奖学金}{\faiconsix{google-scholar}}
+\datedline{山西大学曙光奖学金}{2025.01}
+
+\sectionTitle{专业技能}{\faiconsixbf{code}}
+C, C++, Python, SIMD, CUDA, MPI, OpenMP, Git, Shell, VTune, Docker, Slurm
