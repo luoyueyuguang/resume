@@ -1,0 +1,21 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{stys/zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+\usepackage{stys/linespacing_fix} % disable extra space before next section
+\usepackage{bookmark}
+\usepackage{cite}
+\usepackage{graphicx}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\settitlelinestyle{default} % partialbg, fullbg
+
+\input{texs/header}
+\input{texs/sections}
+\input{texs/proofs}
+
+\end{document}
