@@ -1,0 +1,49 @@
+name: Build Resume
+
+on:
+  push:
+    branches: [zh_CN, zzh_resume]
+    tags: ['**']
+  workflow_dispatch:
+
+jobs:
+  build-resume:
+    runs-on: ubuntu-latest
+    container:
+      image: texlive/texlive:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Compile resume (XeLaTeX, 2 passes)
+        run: |
+          mkdir -p build
+          xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-zh_CN.tex
+          xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-zh_CN.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: resume-zh_CN
+          path: build/resume-zh_CN.pdf
+          if-no-files-found: error
+
+  # 打 tag 时自动发布 GitHub Release，附上简历 PDF
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build-resume
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: resume-zh_CN
+          path: .
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: resume-zh_CN.pdf
+          generate_release_notes: true
