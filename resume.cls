@@ -51,7 +51,7 @@
 \RequirePackage{enumitem}
 \setlist{noitemsep} % removes spacing from items but leaves space around the whole list
 %\setlist{nosep} % removes all vertical spacing within and around the list
-\setlist[itemize]{topsep=0.25em, leftmargin=1.25pc}
+\setlist[itemize]{topsep=0em, leftmargin=1.25pc}
 \setlist[enumerate]{topsep=0.25em, leftmargin=1.25pc}
 \RequirePackage[super]{nth}
 
@@ -100,13 +100,13 @@
 }
 \AtBeginDocument{\applyColorAndTitleStyle}
 
-\titlespacing*{\section}{0cm}{*1.8}{*1.8}
+\titlespacing*{\section}{0cm}{*0.9}{*0.9}
 
 \titleformat{\subsection}
   {\large\raggedright}
   {}{0em}
   {}
-\titlespacing*{\subsection}{0cm}{*1.8}{*0.6}
+\titlespacing*{\subsection}{0cm}{*1.0}{*0.3}
 
 \newcommand{\datedsection}[2]{%
   \section[#1]{#1 \hfill #2}%

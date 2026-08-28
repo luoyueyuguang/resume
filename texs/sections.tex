@@ -2,7 +2,6 @@
 \datedsubsection{\texthl{山西大学} / 计算机与信息技术学院 / 数据科学与大数据技术 / 本科}{2022 -- 2026}
 
 \sectionTitle{竞赛经历}{\faiconsixbf{award}}
-\begin{onehalfspacing}
 \datedline{\underline{2024 ASC 世界大学生超级计算机竞赛 / \texthl{一等奖}}}{2024.05}
 \begin{itemize}
   \item 使用vtune等profile工具分析OpenCAEPoro，定位性能瓶颈在BLAS库gemm（小矩阵动态链接效果差），手写AVX2 kernel替代，并开启Linux透明大页减少缺页中断。
@@ -26,7 +25,6 @@
 \end{itemize}
 
 \datedline{\underline{2025 北京大学 HPCGame / \textit{三等奖}}}{2025.05}
-\end{onehalfspacing}
 
 \sectionTitle{工作经历}{\faiconsixbf{briefcase}}
 \datedsubsection{\texthl{北京开源芯片研究院 (BOSC)}}{2026.03 -- 至今}
@@ -44,6 +42,14 @@
 %   \item 优化 OpenCAEPoro 中的矩阵乘函数，使用 AVX2 手写 kernel 替代 BLAS
 %   \item 更换内存分配器减少内存碎片；开启 Linux 透明大页减少缺页中断
 % \end{itemize}
+
+\datedsubsection{\textbf{Qwen3-0.6B C 语言演示（公司项目）}}{2026.03 -- 至今}
+\role{C, RISC-V RV64, AME, RVV}{}
+\begin{itemize}
+  \item 在带 AME 矩阵加速器与 RVV 向量扩展的自研 SoC（RTL/FPGA 仿真）上，纯 C 实现 Qwen3-0.6B 的 W8A8 量化推理，其中矩阵乘部分使用 AME 矩阵指令集进行加速
+  \item 通过性能计数器实现 profile，探寻性能瓶颈，针对瓶颈进行优化
+  \item 代码：\href{https://www.gitlink.org.cn/michaelcjl/qwen3-0.6b}{gitlink.org.cn/michaelcjl/qwen3-0.6b}
+\end{itemize}
 
 \datedsubsection{\textbf{MinivLLM 推理引擎（个人项目）}}{2026.03 -- 2026.06}
 \role{Python, Triton, CUDA}{}
