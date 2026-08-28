@@ -68,8 +68,9 @@ texs/sections-bio*.tex
 texs/sections-en.tex
 texs/sections_en.tex
 # Award certificates / application screenshots
-华为ICT.jpg
-成绩排名证明.jpg
+华为ICT*.*
+*成绩排名证明*.*
+ASC_IndySCC*.*
 SC*.png
 images/um_*.jpg
 images/um_*.png
