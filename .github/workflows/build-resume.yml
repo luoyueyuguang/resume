@@ -15,20 +15,49 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Compile resume (XeLaTeX, 2 passes)
+      - name: Compile resumes (XeLaTeX, 2 passes)
         run: |
           mkdir -p build
           xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-zh_CN.tex
           xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-zh_CN.tex
+          xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-awards.tex
+          xelatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build resume-awards.tex
 
-      - name: Upload PDF artifact
+      - name: Upload PDF artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: resume-zh_CN
-          path: build/resume-zh_CN.pdf
+          name: resume
+          path: |
+            build/resume-zh_CN.pdf
+            build/resume-awards.pdf
           if-no-files-found: error
 
-  # 打 tag 时自动发布 GitHub Release，附上简历 PDF
+  # 每次 zzh_resume 构建成功后，自动更新 latest release（始终放最新简历）
+  update-latest:
+    if: github.ref == 'refs/heads/zzh_resume'
+    needs: build-resume
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDFs
+        uses: actions/download-artifact@v7
+        with:
+          name: resume
+          path: .
+
+      - name: Publish / update latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create latest \
+            resume-zh_CN.pdf resume-awards.pdf \
+            --title "Latest Resume" \
+            --notes "自动更新的最新简历（AI 软件栈开发工程师）" \
+            --target "${{ github.sha }}" --draft=false || true
+          gh release upload latest resume-zh_CN.pdf resume-awards.pdf --clobber || true
+
+  # 打 tag 时自动发布版本化 Release
   release:
     if: startsWith(github.ref, 'refs/tags/')
     needs: build-resume
@@ -36,14 +65,16 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Download PDF artifact
+      - name: Download PDFs
         uses: actions/download-artifact@v7
         with:
-          name: resume-zh_CN
+          name: resume
           path: .
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          files: resume-zh_CN.pdf
+          files: |
+            resume-zh_CN.pdf
+            resume-awards.pdf
           generate_release_notes: true
